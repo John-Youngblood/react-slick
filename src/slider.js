@@ -26,6 +26,12 @@ export default class Slider extends React.Component {
       }
     };
     mql.addListener(listener);
+
+    // Manually check if the query currently matches on initial load
+    if (mql.matches) {
+      handler();
+    }
+
     this._responsiveMediaHandlers.push({ mql, query, listener });
   }
 
